@@ -1,40 +1,40 @@
 #ifndef _PLAYERMODE_hpp
 #define _PLAYERMODE_hpp
 
-#include <MFRC522.h>
-#include "DFRobotDFPlayerMini.h"
-#include "Globals.hpp"
+#include "ModeBase.hpp"
 
-class PlayerMode
+class PlayerMode : public ModeBase
 {
 public:
     PlayerMode(SoftwareSerial& p_softwareSerial,
                MFRC522& p_rfidModule,
                DFRobotDFPlayerMini& p_playerModule,
                Mode& p_currentMode)
-        : m_softwareSerial(p_softwareSerial),
-          m_rfidModule(p_rfidModule),
-          m_playerModule(p_playerModule),
-          m_currentMode(p_currentMode)
+        : ModeBase(Mode::Player,
+                   p_softwareSerial,
+                   p_rfidModule,
+                   p_playerModule,
+                   p_currentMode)
     {     
     }
     
     void process()
     {
-        print("Enter Player mode");
-        while(m_currentMode == Mode::Player)
-        {
-            wait(5000);
-            return;
-        }
-        print("Exit Player mode");
+        print("Process Player");
+        wait(5000);
+        m_currentMode = Mode::Programmer;
     }
 
 private:
-    SoftwareSerial& m_softwareSerial;
-    MFRC522& m_rfidModule;
-    DFRobotDFPlayerMini& m_playerModule;
-    Mode& m_currentMode;
+    void onEntry()
+    {
+        print("Enter Player mode");  
+    }
+
+    void onExit()
+    {
+        print("Exit Player mode"); 
+    }
 };
 
 #endif

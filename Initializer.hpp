@@ -5,6 +5,10 @@
 #include "Config.hpp"
 #include "Globals.hpp"
 
+#include <SoftwareSerial.h>
+#include <MFRC522.h>
+#include <DFRobotDFPlayerMini.h>
+
 class Initializer
 {
 public:

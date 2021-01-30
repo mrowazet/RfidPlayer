@@ -1,11 +1,6 @@
 #ifndef _GLOBALS_hpp
 #define _GLOBALS_hpp
 
-#include "Config.hpp"
-#include <SoftwareSerial.h>
-#include <MFRC522.h>
-#include "DFRobotDFPlayerMini.h"
-
 enum Mode
 {
     Player,
