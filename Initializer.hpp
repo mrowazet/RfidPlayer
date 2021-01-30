@@ -4,11 +4,19 @@
 #include <Arduino.h>
 #include "Config.hpp"
 #include "Globals.hpp"
-#include "HelperFunctions.hpp"
 
 class Initializer
 {
 public:
+    Initializer(SoftwareSerial& p_softwareSerial,
+                MFRC522& p_rfidModule,
+                DFRobotDFPlayerMini& p_playerModule)
+        : m_softwareSerial(p_softwareSerial),
+          m_rfidModule(p_rfidModule),
+          m_playerModule(p_playerModule)
+    {     
+    }
+    
     void init()
     {
         Serial.begin(115200);
@@ -41,16 +49,16 @@ private:
     {
         print("Init modules...");
         
-        softwareSerial.begin(9600);
+        m_softwareSerial.begin(9600);
         SPI.begin();
-        rfidModule.PCD_Init();
+        m_rfidModule.PCD_Init();
     }
 
     void startDFPlayer()
     {
         print("Start DFPlayer...");
         
-        if (not playerModule.begin(softwareSerial))
+        if (not m_playerModule.begin(m_softwareSerial))
         {
             print("Unable to start DFPlayer:");
             print("1.Check the connections");
@@ -63,7 +71,11 @@ private:
     void initVolumeLevel()
     {
         print("Init volume level...");
-    } 
+    }
+
+    SoftwareSerial& m_softwareSerial;
+    MFRC522& m_rfidModule;
+    DFRobotDFPlayerMini& m_playerModule;
 };
 
 #endif

@@ -6,7 +6,6 @@
 #include <MFRC522.h>
 #include "DFRobotDFPlayerMini.h"
 
-
 enum Mode
 {
     Player,
@@ -14,10 +13,14 @@ enum Mode
     MasterProgrammer
 };
 
-SoftwareSerial softwareSerial(PLAYER_MODULE_RX, PLAYER_MODULE_TX);
-MFRC522 rfidModule(RFID_MODULE_SS_PIN, RFID_MODULE_RST_PIN);
-DFRobotDFPlayerMini playerModule;
+static void wait(unsigned int p_ms)
+{
+    delay(p_ms);
+}
 
-Mode currentMode = Mode::Player;
+static void print(const String& p_msg)
+{
+    Serial.println(p_msg.c_str());
+}
 
 #endif
