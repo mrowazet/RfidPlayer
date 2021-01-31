@@ -1,6 +1,9 @@
 #ifndef _GLOBALS_hpp
 #define _GLOBALS_hpp
 
+typedef int Pin;
+typedef byte AnalogPin;
+
 enum Mode
 {
     Player,

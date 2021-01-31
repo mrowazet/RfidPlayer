@@ -38,6 +38,12 @@ private:
     void initPins()
     {
         print("Init pins...");
+        
+        pinMode(RGB_LED_RED, OUTPUT);
+        pinMode(RGB_LED_GREEN, OUTPUT);
+        pinMode(RGB_LED_BLUE, OUTPUT);
+
+        pinMode(BUZZER, OUTPUT);
     }
     
     void initButtons()

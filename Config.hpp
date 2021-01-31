@@ -1,35 +1,38 @@
 #ifndef _CONFIG_hpp
 #define _CONFIG_hpp
 
+#include "Globals.hpp"
 #include "DFRobotDFPlayerMini.h"
 
 //DFPlayer pins
-const byte PLAYER_MODULE_RX = A4;
-const byte PLAYER_MODULE_TX = A5;
+const AnalogPin PLAYER_MODULE_RX = A4;
+const AnalogPin PLAYER_MODULE_TX = A5;
 
 //RC522 pins
-const int RFID_MODULE_RST = 9;
-const int RFID_MODULE_SS_SDA = 10;
+const Pin RFID_MODULE_RST = 9;
+const Pin RFID_MODULE_SS_SDA = 10;
 
-const int RFID_MODULE_MOSI = 11;
-const int RFID_MODULE_MISO = 12;
-const int RFID_MODULE_SCK = 13;
+const Pin RFID_MODULE_MOSI = 11;
+const Pin RFID_MODULE_MISO = 12;
+const Pin RFID_MODULE_SCK = 13;
 
 //RGB LED pins
-const int RGB_LED_RED = 3;
-const int RGB_LED_GREEN = 5;
-const int RGB_LED_BLUE = 6;
+const Pin RGB_LED_RED = 3;
+const Pin RGB_LED_GREEN = 5;
+const Pin RGB_LED_BLUE = 6;
 
 //Buzzer
-const int BUZZER = 2;
+const Pin BUZZER = 2;
 
 //Other
-const byte VOLUME_ROLL = A0;
+const AnalogPin VOLUME_ROLL = A0;
 
-const byte BUTTON_PLAY_PAUSE = A1;
-const byte BUTTON_SHUFFLE = A2;
-const byte BUTTON_MASTER_PROGRAMMER_MODE = A3;
+const AnalogPin BUTTON_PLAY_PAUSE = A1;
+const AnalogPin BUTTON_SHUFFLE = A2;
+const AnalogPin BUTTON_MASTER_PROGRAMMER_MODE = A3;
 
+//Constants
+const int BUTTON_PRESSED_DELAY = 400;
 const int DFPLAYER_EQ_MODE = DFPLAYER_EQ_NORMAL; 
 /*possible options:
 DFPLAYER_EQ_NORMAL
