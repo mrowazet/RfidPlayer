@@ -22,34 +22,32 @@ public:
     
     void process()
     {
-        print("Process Programmer");
-        wait(5000);
+
     }
 
 private:
     void onEntry()
     {
-        print("Enter Programmer mode");  
-    }
-
-    void onExit()
-    {
-        print("Exit Programmer mode"); 
+        print("Enter Programmer mode");
+        m_userNotifier.communicateModeChanged(COLOR_YELLOW);  
     }
     
     void handlePlayPauseButton()
     {
-        print("Handle Play/Pause button");
+        print("Use automatic programming mode");
+        m_userNotifier.communicateModeChanged(COLOR_BLUE);
     }
     
     void handleShuffleButton()
     {
-        print("Handle Shuffle button");
+        print("Use manual programming mode");
+        m_userNotifier.communicateModeChanged(COLOR_MAGENTA);
     }
     
     void handleMasterProgrammerButton()
     {
-        print("Handle Master Programmer button");
+        //unused
+        m_userNotifier.communicateError();
     }
 };
 

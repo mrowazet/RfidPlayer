@@ -12,26 +12,37 @@ public:
            const Pin p_bluePin)
         : m_red(p_redPin),
           m_green(p_greenPin),
-          m_blue(p_bluePin)
+          m_blue(p_bluePin),
+          m_currentColor(0, 0, 0)
     {
     }
 
-    void setRgb(const int p_red, const int p_green, const int p_blue)
+    void setColor(const Color& p_color)
     {
-        analogWrite(m_red, p_red);
-        analogWrite(m_green, p_green);
-        analogWrite(m_blue, p_blue);
+        m_currentColor = p_color;
+        analogWrite(m_red, m_currentColor.red);
+        analogWrite(m_green, m_currentColor.green);
+        analogWrite(m_blue, m_currentColor.blue);        
     }
 
-    void turnOff()
+    Color getCurrentColor()
     {
-        setRgb(0, 0, 0);
+        return m_currentColor;
+    }
+
+    void randomColor()
+    {      
+        setColor(Color(random(0, 255),
+                       random(0, 255),
+                       random(0, 255)));
     }
 
 private:
     const int m_red;
     const int m_green;
     const int m_blue;
+
+    Color m_currentColor;
 };
 
 #endif

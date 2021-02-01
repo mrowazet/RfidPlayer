@@ -12,6 +12,26 @@ public:
     {
     }
 
+    void shortBeep()
+    {
+      
+    }
+
+    void longBeep()
+    {
+      
+    }
+
+    void errorBeep()
+    {
+      
+    }
+
+    void doubleBeep()
+    {
+      
+    }
+
 private:
     const int m_buzzer;
 };

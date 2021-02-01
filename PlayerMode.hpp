@@ -22,36 +22,33 @@ public:
     
     void process()
     {
-        print("Process Player");
-        wait(5000);
-        m_currentMode = Mode::Programmer;
+        //TODO read cards here
+        //if Master card scanned then change mode to Programmer
     }
 
 private:
     void onEntry()
     {
-        print("Enter Player mode");  
-    }
-
-    void onExit()
-    {
-        print("Exit Player mode"); 
+        print("Enter Player mode - use card to play");
+        m_userNotifier.communicateModeChanged(COLOR_GREEN);
     }
 
     void handlePlayPauseButton()
     {
-        print("Handle Play/Pause button");
+        //TODO
     }
     
     void handleShuffleButton()
     {
-        print("Handle Shuffle button");
+        //TODO
     }
     
     void handleMasterProgrammerButton()
     {
-        print("Handle Master Programmer button");
+        changeMode(Mode::MasterProgrammer);
     }
+
+    bool m_isPlaying = false;
 };
 
 #endif

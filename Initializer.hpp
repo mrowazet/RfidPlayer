@@ -8,16 +8,19 @@
 #include <SoftwareSerial.h>
 #include <MFRC522.h>
 #include <DFRobotDFPlayerMini.h>
+#include "UserNotifier.hpp"
 
 class Initializer
 {
 public:
     Initializer(SoftwareSerial& p_softwareSerial,
                 MFRC522& p_rfidModule,
-                DFRobotDFPlayerMini& p_playerModule)
+                DFRobotDFPlayerMini& p_playerModule,
+                UserNotifier& p_userNotifier)
         : m_softwareSerial(p_softwareSerial),
           m_rfidModule(p_rfidModule),
-          m_playerModule(p_playerModule)
+          m_playerModule(p_playerModule),
+          m_userNotifier(p_userNotifier)
     {     
     }
     
@@ -36,9 +39,7 @@ public:
 
 private:
     void initPins()
-    {
-        print("Init pins...");
-        
+    {    
         pinMode(RGB_LED_RED, OUTPUT);
         pinMode(RGB_LED_GREEN, OUTPUT);
         pinMode(RGB_LED_BLUE, OUTPUT);
@@ -47,9 +48,7 @@ private:
     }
     
     void initButtons()
-    {
-        print("Init buttons...");
-        
+    {       
         pinMode(BUTTON_PLAY_PAUSE, INPUT_PULLUP);
         pinMode(BUTTON_SHUFFLE, INPUT_PULLUP);
         pinMode(BUTTON_MASTER_PROGRAMMER_MODE, INPUT_PULLUP);
@@ -57,8 +56,6 @@ private:
 
     void initModules()
     {
-        print("Init modules...");
-        
         m_softwareSerial.begin(9600);
         SPI.begin();
         m_rfidModule.PCD_Init();
@@ -66,13 +63,10 @@ private:
 
     void startDFPlayer()
     {
-        print("Start DFPlayer...");
-        
         if (not m_playerModule.begin(m_softwareSerial))
         {
-            print("Unable to start DFPlayer:");
-            print("1.Check the connections");
-            print("2.Check SD card");
+            print("Unable to start DFPlayer - check connections and SD card");
+            m_userNotifier.communicateError();
         }
         
         initVolumeLevel();
@@ -80,12 +74,12 @@ private:
 
     void initVolumeLevel()
     {
-        print("Init volume level...");
     }
 
     SoftwareSerial& m_softwareSerial;
     MFRC522& m_rfidModule;
     DFRobotDFPlayerMini& m_playerModule;
+    UserNotifier& m_userNotifier;
 };
 
 #endif

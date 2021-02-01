@@ -37,13 +37,14 @@ MasterProgrammerMode masterProgrammerMode(softwareSerial,
                                           rfidModule, 
                                           playerModule,
                                           userNotifier,
-                                          currentMode);                              
-
+                                          currentMode); 
+                                                                       
 void setup() 
 {
     Initializer initializer(softwareSerial, 
                             rfidModule, 
-                            playerModule);
+                            playerModule,
+                            userNotifier);
     initializer.init();                               
 }
 

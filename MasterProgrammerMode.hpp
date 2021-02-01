@@ -22,34 +22,31 @@ public:
     
     void process()
     {
-        print("Process Master Programmer");
-        wait(5000);
+        //TODO write master code to card here and go back to player mode
     }
 
 private:
     void onEntry()
     {
-        print("Enter Master Programmer mode");  
-    }
-
-    void onExit()
-    {
-        print("Exit Master Programmer mode"); 
+        print("Enter Master Programmer mode - put card next to the sensor");
+        m_userNotifier.communicateModeChanged(COLOR_ORANGE);
     }
 
     void handlePlayPauseButton()
     {
-        print("Handle Play/Pause button");
+        //unused
+        m_userNotifier.communicateError();
     }
     
     void handleShuffleButton()
     {
-        print("Handle Shuffle button");
+        changeMode(Mode::Player);
     }
     
     void handleMasterProgrammerButton()
     {
-        print("Handle Master Programmer button");
+        //unused
+        m_userNotifier.communicateError();
     }
 };
 

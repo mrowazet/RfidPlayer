@@ -31,10 +31,9 @@ public:
         
         while(m_currentMode == m_ownMode)
         {
+            handleButtons();
             process(); 
         }
-        
-        onExit();
     }
 
     void handleButtons()
@@ -65,6 +64,16 @@ public:
 
         if(l_stateChanged)
         {
+            String l_msg = "Button pressed: ";
+
+            switch(p_buttonPin)
+            {
+                case BUTTON_PLAY_PAUSE: l_msg += "Play/Pause"; break;
+                case BUTTON_SHUFFLE: l_msg += "Shuffle"; break;
+                case BUTTON_MASTER_PROGRAMMER_MODE: "Master Programmer"; break;
+            }
+            
+            print(l_msg);           
             wait(BUTTON_PRESSED_DELAY);    
         }
         
@@ -75,11 +84,15 @@ public:
 
 protected:
     virtual void onEntry() = 0;
-    virtual void onExit() = 0;
 
     virtual void handlePlayPauseButton() = 0;
     virtual void handleShuffleButton() = 0;
     virtual void handleMasterProgrammerButton() = 0;
+
+    void changeMode(Mode p_mode)
+    {
+        m_currentMode = p_mode;
+    }
 
     Mode m_ownMode;
 
