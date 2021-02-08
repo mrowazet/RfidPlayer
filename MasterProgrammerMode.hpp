@@ -6,13 +6,11 @@
 class MasterProgrammerMode : public ModeBase
 {
 public:
-    MasterProgrammerMode(SoftwareSerial& p_softwareSerial,
-                         MFRC522& p_rfidModule,
-                         DFRobotDFPlayerMini& p_playerModule,
+    MasterProgrammerMode(RfidModule& p_rfidModule,
+                         PlayerModule& p_playerModule,
                          UserNotifier& p_userNotifier,
                          Mode& p_currentMode)
         : ModeBase(Mode::MasterProgrammer,
-                   p_softwareSerial,
                    p_rfidModule,
                    p_playerModule,
                    p_userNotifier,

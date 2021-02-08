@@ -2,22 +2,19 @@
 #define _MODEBASE_hpp
 
 #include "Globals.hpp"
-#include <SoftwareSerial.h>
-#include <MFRC522.h>
-#include <DFRobotDFPlayerMini.h>
+#include "RfidModule.hpp"
+#include "PlayerModule.hpp"
 #include "UserNotifier.hpp"
 
 class ModeBase
 {
 public:
     ModeBase(Mode p_ownMode,
-             SoftwareSerial& p_softwareSerial,
-             MFRC522& p_rfidModule,
-             DFRobotDFPlayerMini& p_playerModule,
+             RfidModule& p_rfidModule,
+             PlayerModule& p_playerModule,
              UserNotifier& p_userNotifier,
              Mode& p_currentMode)
         : m_ownMode(p_ownMode),
-          m_softwareSerial(p_softwareSerial),
           m_rfidModule(p_rfidModule),
           m_playerModule(p_playerModule),
           m_userNotifier(p_userNotifier),
@@ -56,6 +53,7 @@ public:
 
     bool buttonPressed(const Pin p_buttonPin)
     {
+        //TODO use Bounce2
         bool l_stateChanged = false;
         while (digitalRead(p_buttonPin) == LOW)
         {
@@ -96,9 +94,8 @@ protected:
 
     Mode m_ownMode;
 
-    SoftwareSerial& m_softwareSerial;
-    MFRC522& m_rfidModule;
-    DFRobotDFPlayerMini& m_playerModule;
+    RfidModule& m_rfidModule;
+    PlayerModule& m_playerModule;
     UserNotifier& m_userNotifier;
     Mode& m_currentMode;
 };

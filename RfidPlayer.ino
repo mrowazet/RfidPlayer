@@ -9,43 +9,37 @@
 #include "PlayerMode.hpp"
 #include "ProgrammerMode.hpp"
 #include "MasterProgrammerMode.hpp"
+#include "RfidModule.hpp"
+#include "PlayerModule.hpp"
 
 Mode currentMode = Mode::Player;
-
-SoftwareSerial softwareSerial(PLAYER_MODULE_RX, PLAYER_MODULE_TX);
-MFRC522 rfidModule(RFID_MODULE_SS_SDA, RFID_MODULE_RST);
-DFRobotDFPlayerMini playerModule;
 
 UserNotifier userNotifier(Buzzer(BUZZER),
                           RgbLed(RGB_LED_RED,
                                  RGB_LED_GREEN,
                                  RGB_LED_BLUE));
 
-PlayerMode playerMode(softwareSerial, 
-                      rfidModule, 
+RfidModule rfidModule(RFID_MODULE_SS_SDA, RFID_MODULE_RST, userNotifier);
+PlayerModule playerModule(PLAYER_MODULE_RX, PLAYER_MODULE_TX, userNotifier);
+
+PlayerMode playerMode(rfidModule, 
                       playerModule,
                       userNotifier, 
                       currentMode);
                       
-ProgrammerMode programmerMode(softwareSerial, 
-                              rfidModule, 
+ProgrammerMode programmerMode(rfidModule, 
                               playerModule, 
                               userNotifier,
                               currentMode);
                               
-MasterProgrammerMode masterProgrammerMode(softwareSerial, 
-                                          rfidModule, 
+MasterProgrammerMode masterProgrammerMode(rfidModule, 
                                           playerModule,
                                           userNotifier,
                                           currentMode); 
                                                                        
 void setup() 
 {
-    Initializer initializer(softwareSerial, 
-                            rfidModule, 
-                            playerModule,
-                            userNotifier);
-    initializer.init();                               
+    Initializer initializer(userNotifier);                           
 }
 
 void loop() 

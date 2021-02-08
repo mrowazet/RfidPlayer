@@ -32,7 +32,11 @@ const AnalogPin BUTTON_SHUFFLE = A2;
 const AnalogPin BUTTON_MASTER_PROGRAMMER_MODE = A3;
 
 //Constants
-const int MASTER_CARD_CODE = 9999;
+const byte MAX_NUM_OF_TRACKS = 253;
+
+const byte MASTER_CARD_CODE = 254;
+const byte DATA_BLOCK_NUMBER = 62;
+
 const int BUTTON_PRESSED_DELAY = 400;
 const int SHORT_BEEP_DURATION = 400;
 const int LONG_BEEP_DURATION = 900;
