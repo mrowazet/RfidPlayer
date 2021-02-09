@@ -2,6 +2,7 @@
 #define _MODEBASE_hpp
 
 #include "Globals.hpp"
+#include "ButtonsHandler.hpp"
 #include "RfidModule.hpp"
 #include "PlayerModule.hpp"
 #include "UserNotifier.hpp"
@@ -10,11 +11,13 @@ class ModeBase
 {
 public:
     ModeBase(Mode p_ownMode,
+             ButtonsHandler& p_buttonsHandler,
              RfidModule& p_rfidModule,
              PlayerModule& p_playerModule,
              UserNotifier& p_userNotifier,
              Mode& p_currentMode)
         : m_ownMode(p_ownMode),
+          m_buttonsHandler(p_buttonsHandler),
           m_rfidModule(p_rfidModule),
           m_playerModule(p_playerModule),
           m_userNotifier(p_userNotifier),
@@ -35,47 +38,22 @@ public:
 
     void handleButtons()
     {
-        if(buttonPressed(BUTTON_PLAY_PAUSE))
+        m_buttonsHandler.update();
+        
+        if(m_buttonsHandler.playPausePressed())
         {
             handlePlayPauseButton();
         }
 
-        if(buttonPressed(BUTTON_SHUFFLE))
+        if(m_buttonsHandler.shufflePressed())
         {
             handleShuffleButton();
         }
 
-        if(buttonPressed(BUTTON_MASTER_PROGRAMMER_MODE))
+        if(m_buttonsHandler.masterProgrammerPressed())
         {
             handleMasterProgrammerButton();
         }
-    }
-
-    bool buttonPressed(const Pin p_buttonPin)
-    {
-        //TODO use Bounce2
-        bool l_stateChanged = false;
-        while (digitalRead(p_buttonPin) == LOW)
-        {
-            l_stateChanged = true;    
-        }
-
-        if(l_stateChanged)
-        {
-            String l_msg = "Button pressed: ";
-
-            switch(p_buttonPin)
-            {
-                case BUTTON_PLAY_PAUSE: l_msg += "Play/Pause"; break;
-                case BUTTON_SHUFFLE: l_msg += "Shuffle"; break;
-                case BUTTON_MASTER_PROGRAMMER_MODE: "Master Programmer"; break;
-            }
-            
-            print(l_msg);           
-            wait(BUTTON_PRESSED_DELAY);    
-        }
-        
-        return l_stateChanged;
     }
     
     virtual void process() = 0;
@@ -94,6 +72,7 @@ protected:
 
     Mode m_ownMode;
 
+    ButtonsHandler& m_buttonsHandler;
     RfidModule& m_rfidModule;
     PlayerModule& m_playerModule;
     UserNotifier& m_userNotifier;

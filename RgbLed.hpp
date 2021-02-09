@@ -7,22 +7,16 @@
 class RgbLed
 {
 public:
-    RgbLed(const Pin p_redPin, 
-           const Pin p_greenPin, 
-           const Pin p_bluePin)
-        : m_red(p_redPin),
-          m_green(p_greenPin),
-          m_blue(p_bluePin),
+    RgbLed(const Pin p_rgbLedControl) 
+        : m_rgbLedControl(p_rgbLedControl),
           m_currentColor(0, 0, 0)
     {
+        pinMode(p_rgbLedControl, OUTPUT);
     }
 
     void setColor(const Color& p_color)
     {
-        m_currentColor = p_color;
-        analogWrite(m_red, m_currentColor.red);
-        analogWrite(m_green, m_currentColor.green);
-        analogWrite(m_blue, m_currentColor.blue);        
+        m_currentColor = p_color;   
     }
 
     Color getCurrentColor()
@@ -38,10 +32,7 @@ public:
     }
 
 private:
-    const int m_red;
-    const int m_green;
-    const int m_blue;
-
+    const Pin m_rgbLedControl;
     Color m_currentColor;
 };
 

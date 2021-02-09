@@ -6,11 +6,13 @@
 class PlayerMode : public ModeBase
 {
 public:
-    PlayerMode(RfidModule& p_rfidModule,
+    PlayerMode(ButtonsHandler& p_buttonsHandler,
+               RfidModule& p_rfidModule,
                PlayerModule& p_playerModule,
                UserNotifier& p_userNotifier,
                Mode& p_currentMode)
         : ModeBase(Mode::Player,
+                   p_buttonsHandler,
                    p_rfidModule,
                    p_playerModule,
                    p_userNotifier,

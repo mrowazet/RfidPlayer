@@ -10,6 +10,7 @@ public:
     Buzzer(const Pin p_buzzerPin)
         : m_buzzer(p_buzzerPin)
     {
+        pinMode(p_buzzerPin, OUTPUT);
     }
 
     void shortBeep()

@@ -2,9 +2,7 @@
 
 #include "Globals.hpp"
 #include "Config.hpp"
-#include "Initializer.hpp"
-#include "Buzzer.hpp"
-#include "RgbLed.hpp"
+#include "ButtonsHandler.hpp"
 #include "UserNotifier.hpp"
 #include "PlayerMode.hpp"
 #include "ProgrammerMode.hpp"
@@ -14,32 +12,20 @@
 
 Mode currentMode = Mode::Player;
 
-UserNotifier userNotifier(Buzzer(BUZZER),
-                          RgbLed(RGB_LED_RED,
-                                 RGB_LED_GREEN,
-                                 RGB_LED_BLUE));
+ButtonsHandler buttonsHandler(BUTTON_PLAY_PAUSE, BUTTON_SHUFFLE, BUTTON_MASTER_PROGRAMMER_MODE);
+UserNotifier userNotifier(BUZZER, RGB_LED_CONTROL);
 
 RfidModule rfidModule(RFID_MODULE_SS_SDA, RFID_MODULE_RST, userNotifier);
 PlayerModule playerModule(PLAYER_MODULE_RX, PLAYER_MODULE_TX, userNotifier);
 
-PlayerMode playerMode(rfidModule, 
-                      playerModule,
-                      userNotifier, 
-                      currentMode);
-                      
-ProgrammerMode programmerMode(rfidModule, 
-                              playerModule, 
-                              userNotifier,
-                              currentMode);
-                              
-MasterProgrammerMode masterProgrammerMode(rfidModule, 
-                                          playerModule,
-                                          userNotifier,
-                                          currentMode); 
+PlayerMode playerMode(buttonsHandler, rfidModule, playerModule, userNotifier, currentMode);                  
+ProgrammerMode programmerMode(buttonsHandler, rfidModule, playerModule, userNotifier, currentMode);                          
+MasterProgrammerMode masterProgrammerMode(buttonsHandler, rfidModule, playerModule, userNotifier, currentMode); 
                                                                        
 void setup() 
 {
-    Initializer initializer(userNotifier);                           
+    Serial.begin(115200);
+    print("Start RFID Player...");
 }
 
 void loop() 

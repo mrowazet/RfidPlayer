@@ -9,7 +9,7 @@
 class UserNotifier
 {
 public:
-    UserNotifier(Buzzer p_buzzer, RgbLed p_rgbLed) //intentional copy
+    UserNotifier(Pin p_buzzer, RgbLed p_rgbLed)
         : m_buzzer(p_buzzer),
           m_rgbLed(p_rgbLed)
     {

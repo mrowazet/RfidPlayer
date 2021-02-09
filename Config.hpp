@@ -16,10 +16,8 @@ const Pin RFID_MODULE_MOSI = 11;
 const Pin RFID_MODULE_MISO = 12;
 const Pin RFID_MODULE_SCK = 13;
 
-//RGB LED pins
-const Pin RGB_LED_RED = 3;
-const Pin RGB_LED_GREEN = 5;
-const Pin RGB_LED_BLUE = 6;
+//RGB LED pin
+const Pin RGB_LED_CONTROL = 3;
 
 //Buzzer
 const Pin BUZZER = 2;
@@ -37,7 +35,7 @@ const byte MAX_NUM_OF_TRACKS = 253;
 const byte MASTER_CARD_CODE = 254;
 const byte DATA_BLOCK_NUMBER = 62;
 
-const int BUTTON_PRESSED_DELAY = 400;
+const int DEBOUNCE_INTERVAL = 50;
 const int SHORT_BEEP_DURATION = 400;
 const int LONG_BEEP_DURATION = 900;
 const int DOUBLE_BEEP_DURATION = 300;

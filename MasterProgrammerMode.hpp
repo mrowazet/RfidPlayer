@@ -6,11 +6,13 @@
 class MasterProgrammerMode : public ModeBase
 {
 public:
-    MasterProgrammerMode(RfidModule& p_rfidModule,
+    MasterProgrammerMode(ButtonsHandler& p_buttonsHandler,
+                         RfidModule& p_rfidModule,
                          PlayerModule& p_playerModule,
                          UserNotifier& p_userNotifier,
                          Mode& p_currentMode)
         : ModeBase(Mode::MasterProgrammer,
+                   p_buttonsHandler,
                    p_rfidModule,
                    p_playerModule,
                    p_userNotifier,
