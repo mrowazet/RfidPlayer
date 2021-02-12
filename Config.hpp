@@ -27,7 +27,7 @@ const AnalogPin VOLUME_ROLL = A0;
 
 const AnalogPin BUTTON_PLAY_PAUSE = A1;
 const AnalogPin BUTTON_SHUFFLE = A2;
-const AnalogPin BUTTON_MASTER_PROGRAMMER_MODE = A4;
+const AnalogPin BUTTON_MASTER_PROGRAMMER_MODE = A3;
 
 //Constants
 const int NUM_OF_RGB_LEDS = 1;
@@ -37,7 +37,7 @@ const byte MAX_NUM_OF_TRACKS = 253;
 const byte MASTER_CARD_CODE = 254;
 const byte DATA_BLOCK_NUMBER = 62;
 
-const int DEBOUNCE_INTERVAL = 40;
+const int DEBOUNCE_INTERVAL = 5;
 const int SHORT_BEEP_DURATION = 400;
 const int LONG_BEEP_DURATION = 900;
 const int DOUBLE_BEEP_DURATION = 300;
