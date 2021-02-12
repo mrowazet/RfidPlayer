@@ -34,6 +34,7 @@ public:
 
     void communicateError()
     {
+        print("Error - unexpected action");
         Color l_currentColor = m_rgbLed.getCurrentColor();
         
         m_rgbLed.setColor(COLOR_RED);

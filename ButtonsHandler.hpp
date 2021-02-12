@@ -40,8 +40,10 @@ private:
     Bounce2::Button m_buttonShuffle;
     Bounce2::Button m_buttonMasterProgrammer;
 
-    void configureButton(Bounce2::Button& p_button, Pin p_buttonPin)
+    void configureButton(Bounce2::Button& p_button, AnalogPin p_buttonPin)
     {
+        pinMode(p_buttonPin, INPUT_PULLUP);
+        
         p_button.attach(p_buttonPin, INPUT_PULLUP);
         p_button.interval(DEBOUNCE_INTERVAL);
         p_button.setPressedState(LOW);  

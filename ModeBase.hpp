@@ -42,16 +42,19 @@ public:
         
         if(m_buttonsHandler.playPausePressed())
         {
+            print("Play/Pause button pressed");
             handlePlayPauseButton();
         }
 
         if(m_buttonsHandler.shufflePressed())
         {
+            print("Shuffle button pressed");
             handleShuffleButton();
         }
 
         if(m_buttonsHandler.masterProgrammerPressed())
         {
+            print("Master Programmer button pressed");
             handleMasterProgrammerButton();
         }
     }

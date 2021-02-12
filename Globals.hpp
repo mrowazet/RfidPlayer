@@ -20,9 +20,9 @@ struct Color
     {
     }
     
-    int red;
-    int green;
-    int blue;
+    byte red;
+    byte green;
+    byte blue;
 };
 
 static void wait(unsigned int p_ms)
