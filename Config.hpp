@@ -17,10 +17,10 @@ const Pin RFID_MODULE_MISO = 12;
 const Pin RFID_MODULE_SCK = 13;
 
 //RGB LED pin
-const Pin RGB_LED_CONTROL = 3;
+const Pin RGB_LED_CONTROL = 5;
 
 //Buzzer pin
-const Pin BUZZER = 2;
+const Pin BUZZER = 4;
 
 //Other
 const AnalogPin VOLUME_ROLL = A0;
@@ -38,12 +38,14 @@ const byte MASTER_CARD_CODE = 254;
 const byte DATA_BLOCK_NUMBER = 62;
 
 const int DEBOUNCE_INTERVAL = 5;
+
 const int SHORT_BEEP_DURATION = 400;
 const int LONG_BEEP_DURATION = 900;
+const int ERROR_BEEP_DURATION = 1500;
 const int DOUBLE_BEEP_DURATION = 300;
-const int DOUBLE_BEEP_GAP = 100;
-const int BEEP_FREQ = 80;
-const int ERROR_BEEP_FREQ = 10;
+const int DOUBLE_BEEP_GAP = DOUBLE_BEEP_DURATION + 100;
+const int BEEP_FREQ = 800;
+const int ERROR_BEEP_FREQ = 200;
 
 const int DFPLAYER_EQ_MODE = DFPLAYER_EQ_NORMAL; 
 /*possible options:

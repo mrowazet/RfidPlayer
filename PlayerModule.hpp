@@ -11,7 +11,7 @@
 class PlayerModule
 {
 public:
-    PlayerModule(Pin p_rx, Pin p_tx, UserNotifier& p_userNotifier)
+    PlayerModule(Pin p_rx, Pin p_tx, AnalogPin p_volumeRoll, UserNotifier& p_userNotifier)
         : m_softwareSerial(p_rx, p_tx),
           m_userNotifier(p_userNotifier)
     {
@@ -22,19 +22,25 @@ public:
             print("Unable to start DFPlayer - check connections and SD card");
             m_userNotifier.communicateError();
         }
+    }
 
-        initVolumeLevel();
+    void updateVolume()
+    {
+        int l_volumeLevel = map(analogRead(m_volumeRoll),
+                                MIN_VOLUME_LEVEL, MAX_VALUE_ON_ROLL, 
+                                MAX_VOLUME_ON_DFPLAYER, MIN_VOLUME_LEVEL);  
+        m_dfPlayer.volume(l_volumeLevel);
     }
 
 private:
+    const int MIN_VOLUME_LEVEL = 0;
+    const int MAX_VOLUME_ON_DFPLAYER = 30;
+    const int MAX_VALUE_ON_ROLL = 1023;
+
     SoftwareSerial m_softwareSerial;
     DFRobotDFPlayerMini m_dfPlayer;
+    const AnalogPin m_volumeRoll;
     UserNotifier& m_userNotifier;
-    
-    void initVolumeLevel()
-    {
-      
-    }
 };
 
 #endif

@@ -34,11 +34,12 @@ public:
 
     void communicateError()
     {
-        print("Error - unexpected action");
+        print("Error - unexpected event");
         Color l_currentColor = m_rgbLed.getCurrentColor();
         
         m_rgbLed.setColor(COLOR_RED);
         m_buzzer.errorBeep();
+        wait(ERROR_BEEP_DURATION);
 
         m_rgbLed.setColor(l_currentColor);
     }

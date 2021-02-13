@@ -31,7 +31,7 @@ void setup()
     userNotifier = new UserNotifier(BUZZER, RGB_LED_CONTROL);
 
     rfidModule = new RfidModule(RFID_MODULE_SS_SDA, RFID_MODULE_RST, *userNotifier);
-    playerModule = new PlayerModule(PLAYER_MODULE_RX, PLAYER_MODULE_TX, *userNotifier);
+    playerModule = new PlayerModule(PLAYER_MODULE_RX, PLAYER_MODULE_TX, VOLUME_ROLL, *userNotifier);
 
     playerMode = new PlayerMode(*buttonsHandler, *rfidModule, *playerModule, *userNotifier, currentMode);                  
     programmerMode = new ProgrammerMode(*buttonsHandler, *rfidModule, *playerModule, *userNotifier, currentMode);                          

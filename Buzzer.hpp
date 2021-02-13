@@ -15,26 +15,28 @@ public:
 
     void shortBeep()
     {
-      
+       tone(m_buzzer, BEEP_FREQ, SHORT_BEEP_DURATION);    
     }
 
     void longBeep()
     {
-      
+        tone(m_buzzer, BEEP_FREQ, LONG_BEEP_DURATION);
     }
 
     void errorBeep()
     {
-      
+        tone(m_buzzer, BEEP_FREQ, DOUBLE_BEEP_DURATION);
+        wait(DOUBLE_BEEP_GAP);
+        tone(m_buzzer, BEEP_FREQ, DOUBLE_BEEP_DURATION);
     }
 
     void doubleBeep()
     {
-      
+        tone(m_buzzer, ERROR_BEEP_FREQ, ERROR_BEEP_DURATION); 
     }
 
 private:
-    const int m_buzzer;
+    const Pin m_buzzer;
 };
 
 #endif
