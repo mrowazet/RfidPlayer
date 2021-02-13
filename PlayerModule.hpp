@@ -22,6 +22,8 @@ public:
             print("Unable to start DFPlayer - check connections and SD card");
             m_userNotifier.communicateError();
         }
+
+        m_dfPlayer.EQ(DFPLAYER_EQ_MODE);
     }
 
     void updateVolume()
@@ -30,6 +32,26 @@ public:
                                 MIN_VOLUME_LEVEL, MAX_VALUE_ON_ROLL, 
                                 MAX_VOLUME_ON_DFPLAYER, MIN_VOLUME_LEVEL);  
         m_dfPlayer.volume(l_volumeLevel);
+    }
+
+    void play(int p_fileNumber)
+    {
+        m_dfPlayer.play(p_fileNumber);  
+    }
+    
+    void randomPlay()
+    {
+        m_dfPlayer.randomAll();  
+    }
+    
+    void pause()
+    {
+        m_dfPlayer.pause();  
+    }
+    
+    void start()
+    {
+        m_dfPlayer.start();  
     }
 
 private:

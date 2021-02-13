@@ -35,7 +35,9 @@ void setup()
 
     playerMode = new PlayerMode(*buttonsHandler, *rfidModule, *playerModule, *userNotifier, currentMode);                  
     programmerMode = new ProgrammerMode(*buttonsHandler, *rfidModule, *playerModule, *userNotifier, currentMode);                          
-    masterProgrammerMode = new MasterProgrammerMode(*buttonsHandler, *rfidModule, *playerModule, *userNotifier, currentMode);    
+    masterProgrammerMode = new MasterProgrammerMode(*buttonsHandler, *rfidModule, *playerModule, *userNotifier, currentMode);
+
+   print("RFID Player started");
 }
 
 void loop() 

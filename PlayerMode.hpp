@@ -22,8 +22,23 @@ public:
     
     void process()
     {
-        //TODO read cards here
-        //if Master card scanned then change mode to Programmer
+        int l_detectedNumber = m_rfidModule.read();
+        
+        if(l_detectedNumber == NO_NEW_CARD_DETECTED)
+        {
+            return;
+        }
+
+        if(l_detectedNumber == MASTER_CARD_CODE)
+        {
+            pausePlaying();
+            changeMode(Mode::Programmer);
+            return;
+        }
+
+        pausePlaying();
+        m_userNotifier.communicateCardRead();
+        startPlaying(l_detectedNumber);
     }
 
 private:
@@ -35,19 +50,51 @@ private:
 
     void handlePlayPauseButton()
     {
-        //TODO
+        if(isPlaying())
+        {
+            pausePlaying(); 
+        }
+        else
+        {
+            resumePlaying();
+        }
     }
     
     void handleShuffleButton()
     {
-        //TODO
+        m_isPlaying = true;
+        m_playerModule.randomPlay();
     }
     
     void handleMasterProgrammerButton()
     {
+        pausePlaying();
         changeMode(Mode::MasterProgrammer);
     }
 
+    void startPlaying(int p_fileNumber)
+    {
+        m_isPlaying = true;
+        m_playerModule.play(p_fileNumber); 
+    }
+
+    void pausePlaying()
+    {
+        m_isPlaying = false;
+        m_playerModule.pause();  
+    }
+
+    void resumePlaying()
+    {
+        m_isPlaying = true;
+        m_playerModule.start();
+    }
+
+    bool isPlaying() const
+    {
+        return m_isPlaying;
+    }
+    
     bool m_isPlaying = false;
 };
 

@@ -22,7 +22,11 @@ public:
     
     void process()
     {
-        //TODO write master code to card here and go back to player mode
+        if(m_rfidModule.write(MASTER_CARD_CODE))
+        {
+            changeMode(Mode::Player);
+            m_userNotifier.communicateConfirm();
+        }
     }
 
 private:

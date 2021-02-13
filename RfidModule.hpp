@@ -18,6 +18,16 @@ public:
         m_mfrc522.PCD_Init();
     }
 
+    int read()
+    {
+      
+    }
+
+    bool write(int p_number)
+    {
+      
+    }
+
 private:
     MFRC522 m_mfrc522;
     UserNotifier& m_userNotifier;
