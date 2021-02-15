@@ -40,14 +40,13 @@ private:
     
     void handleShuffleButton()
     {
-        print("Use manual programming mode");
-        m_userNotifier.communicateModeChanged(COLOR_MAGENTA);
+        changeMode(Mode::Player);
     }
     
     void handleMasterProgrammerButton()
     {
-        //unused
-        m_userNotifier.communicateError();
+        print("Use manual programming mode");
+        m_userNotifier.communicateModeChanged(COLOR_MAGENTA);
     }
 };
 

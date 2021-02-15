@@ -35,6 +35,7 @@ public:
 
     void randomColor()
     {      
+        //TODO use some algorithm for this, RGB: 0, 5, 3 is not a good color...
         setColor(Color(random(0, 255),
                        random(0, 255),
                        random(0, 255)));

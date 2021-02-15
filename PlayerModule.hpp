@@ -29,10 +29,19 @@ public:
 
     void updateVolume()
     {
-        int l_volumeLevel = map(analogRead(m_volumeRoll),
-                                MIN_VOLUME_LEVEL, MAX_VALUE_ON_ROLL, 
-                                MIN_VOLUME_LEVEL, MAX_VOLUME_ON_DFPLAYER);
-        m_dfPlayer.volume(l_volumeLevel);
+        unsigned long l_currentTime = millis();
+
+        if(l_currentTime - m_lastVolumeUpdate > VOLUME_UPDATE_INTERVAL_IN_MS)
+        {
+            m_lastVolumeUpdate = l_currentTime;
+
+                    static int l_volumeLevel = map(analogRead(m_volumeRoll),
+                                                   MIN_VOLUME_LEVEL, MAX_VALUE_ON_ROLL,
+                                                   MIN_VOLUME_LEVEL, MAX_VOLUME_ON_DFPLAYER);
+
+           //this function blocks buttons so called with interval VOLUME_UPDATE_INTERVAL_IN_MS
+            m_dfPlayer.volume(l_volumeLevel);
+        }
     }
 
     void play(int p_fileNumber)
@@ -64,6 +73,7 @@ private:
     DFRobotDFPlayerMini m_dfPlayer;
     const AnalogPin m_volumeRoll;
     UserNotifier& m_userNotifier;
+    unsigned int m_lastVolumeUpdate;
 };
 
 #endif
