@@ -22,6 +22,7 @@ public:
     
     void process()
     {
+        m_playerModule.updateVolume();
         int l_detectedNumber = m_rfidModule.read();
         
         if(l_detectedNumber == NO_NEW_CARD_DETECTED)

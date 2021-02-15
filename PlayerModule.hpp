@@ -13,6 +13,7 @@ class PlayerModule
 public:
     PlayerModule(Pin p_rx, Pin p_tx, AnalogPin p_volumeRoll, UserNotifier& p_userNotifier)
         : m_softwareSerial(p_rx, p_tx),
+          m_volumeRoll(p_volumeRoll),
           m_userNotifier(p_userNotifier)
     {
         m_softwareSerial.begin(9600);
@@ -30,7 +31,7 @@ public:
     {
         int l_volumeLevel = map(analogRead(m_volumeRoll),
                                 MIN_VOLUME_LEVEL, MAX_VALUE_ON_ROLL, 
-                                MAX_VOLUME_ON_DFPLAYER, MIN_VOLUME_LEVEL);  
+                                MIN_VOLUME_LEVEL, MAX_VOLUME_ON_DFPLAYER);
         m_dfPlayer.volume(l_volumeLevel);
     }
 

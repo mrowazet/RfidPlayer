@@ -9,18 +9,10 @@ class RgbLed
 {
 public:
     RgbLed(const Pin p_rgbLedsControl) 
-        : m_currentColor(0, 0, 0)
+        : m_leds(NUM_OF_RGB_LEDS, p_rgbLedsControl, NEO_RGB + NEO_KHZ800),
+          m_currentColor(0, 0, 0)
     {
-        pinMode(p_rgbLedsControl, OUTPUT);
-
-        m_leds = new Adafruit_NeoPixel(NUM_OF_RGB_LEDS, 
-                                       p_rgbLedsControl, 
-                                       NEO_RGB + NEO_KHZ800);
-    }
-
-    ~RgbLed()
-    {
-        delete m_leds;
+        m_leds.begin();
     }
 
     void setColor(const Color& p_color)
@@ -29,12 +21,11 @@ public:
         
         for(int i = 0; i < NUM_OF_RGB_LEDS; i++)
         {
-            m_leds->setPixelColor(i, m_leds->Color(m_currentColor.red, 
-                                                   m_currentColor.green, 
-                                                   m_currentColor.blue));  
+            m_leds.setPixelColor(i, m_leds.Color(p_color.red,
+                                                 p_color.green,
+                                                 p_color.blue));
+            m_leds.show();
         }
-
-        m_leds->show();
     }
 
     Color getCurrentColor()
@@ -51,12 +42,12 @@ public:
 
     void turnOff()
     {
-        m_leds->clear();
-        m_leds->show();
+        m_leds.clear();
+        m_leds.show();
     }
 
 private:
-    Adafruit_NeoPixel* m_leds;
+    Adafruit_NeoPixel m_leds;
     Color m_currentColor;
 };
 

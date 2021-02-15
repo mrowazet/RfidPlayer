@@ -9,7 +9,7 @@
 class UserNotifier
 {
 public:
-    UserNotifier(Pin p_buzzer, RgbLed p_rgbLed)
+    UserNotifier(Pin p_buzzer, Pin p_rgbLed)
         : m_buzzer(p_buzzer),
           m_rgbLed(p_rgbLed)
     {
