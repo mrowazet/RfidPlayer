@@ -75,6 +75,7 @@ private:
 
     void startPlaying(int p_fileNumber)
     {
+        print("Play track number: " + String(p_fileNumber));
         m_isPlaying = true;
         m_playerModule.play(p_fileNumber); 
     }
