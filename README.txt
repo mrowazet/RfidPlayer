@@ -5,11 +5,12 @@ DRAFT
 RfidPlayer
 
 This project was inspired on: https://ananords.com/juuke-a-rfid-music-player-for-elderly-and-kids
-Project realised on Arduino UNO but can be built on another Arduino version with enough number of pins.
+Project realized on Arduino UNO but can be built on another Arduino version with enough number of pins.
+Circuit made in Draw.io - https://www.diagrams.net
 
 Description:
 Easy to use and simple to assembly MP3 player that can be connected via AUX to external speakers.
-Tracks are selected based on scanned RFID self-programed card. Files with your music are stored on MicroSD card.
+Tracks are selected based on scanned RFID self-programmed card. Files with your music are stored on MicroSD card.
 
 Key features:
 - Play music track specified on encoded RFID card (MIFARE)
@@ -29,7 +30,7 @@ The most important stuff you need is:
 - RFID cards
 - buttons
 - buzzer
-- 2x RGB Led (PL9823)
+- RGB Led (PL9823)
 
 Download needed libraries:
 Adafruit_NeoPixel
