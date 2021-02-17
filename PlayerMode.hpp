@@ -64,7 +64,9 @@ private:
     void handleShuffleButton()
     {
         m_isPlaying = true;
+        m_rfidModule.resetLastReadTrackNumber();
         m_playerModule.randomPlay();
+        m_userNotifier.communicateShuffle();
     }
     
     void handleMasterProgrammerButton()

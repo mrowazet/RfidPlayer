@@ -45,6 +45,11 @@ public:
         return false;
     }
 
+    void resetLastReadTrackNumber()
+    {
+        m_lastReadTrackNumber = NO_NEW_CARD_DETECTED;
+    }
+
 private:
     initializeAuthenticationKey()
     {

@@ -36,6 +36,11 @@ public:
         wait(CARD_READ_BEEP_WITH_OFFSET); 
     }
 
+    void communicateShuffle()
+    {
+        m_rgbLed.randomColor();
+    }
+
     void communicateError()
     {
         print("Error - unexpected event");

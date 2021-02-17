@@ -35,10 +35,7 @@ public:
 
     void randomColor()
     {      
-        //TODO use some algorithm for this, RGB: 0, 5, 3 is not a good color...
-        setColor(Color(random(0, 255),
-                       random(0, 255),
-                       random(0, 255)));
+        setColor(shuffleIntensiveColor());
     }
 
     void turnOff()
@@ -48,6 +45,29 @@ public:
     }
 
 private:
+    Color  shuffleIntensiveColor()
+    {
+        Color l_color (random(0, 255),
+                       random(0, 255),
+                       random(0, 255));
+
+        while(true)
+        {
+            if((l_color.red > MIN_VALUE_FOR_MOST_INTENSIVE_COLOR and l_color.green < MAX_VALUE_FOR_LESS_INTENSIVE_COLORS and l_color.blue < MAX_VALUE_FOR_LESS_INTENSIVE_COLORS)
+                or (l_color.red < MAX_VALUE_FOR_LESS_INTENSIVE_COLORS and l_color.green > MIN_VALUE_FOR_MOST_INTENSIVE_COLOR and l_color.blue < MAX_VALUE_FOR_LESS_INTENSIVE_COLORS)
+                or (l_color.red < MAX_VALUE_FOR_LESS_INTENSIVE_COLORS and l_color.green < MAX_VALUE_FOR_LESS_INTENSIVE_COLORS and l_color.blue > MIN_VALUE_FOR_MOST_INTENSIVE_COLOR))
+            {
+                return l_color;             
+            }
+            else
+            {
+                l_color.red = random(0, 255);
+                l_color.green = random(0, 255);
+                l_color.blue = random(0, 255);
+            }            
+        }
+    }
+    
     Adafruit_NeoPixel m_leds;
     Color m_currentColor;
 };

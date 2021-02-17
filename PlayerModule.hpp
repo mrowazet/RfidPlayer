@@ -35,11 +35,10 @@ public:
         {
             m_lastVolumeUpdate = l_currentTime;
 
-                    static int l_volumeLevel = map(analogRead(m_volumeRoll),
-                                                   MIN_VOLUME_LEVEL, MAX_VALUE_ON_ROLL,
-                                                   MIN_VOLUME_LEVEL, MAX_VOLUME_ON_DFPLAYER);
+            int l_volumeLevel = map(analogRead(m_volumeRoll),
+                                    MIN_VOLUME_LEVEL, MAX_VALUE_ON_ROLL,
+                                    MIN_VOLUME_LEVEL, MAX_VOLUME_ON_DFPLAYER);
 
-           //this function blocks buttons so called with interval VOLUME_UPDATE_INTERVAL_IN_MS
             m_dfPlayer.volume(l_volumeLevel);
         }
     }
