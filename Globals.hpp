@@ -4,7 +4,7 @@
 typedef int Pin;
 typedef byte AnalogPin;
 
-enum Mode
+enum class Mode
 {
     Player,
     Programmer,

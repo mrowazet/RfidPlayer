@@ -158,7 +158,7 @@ private:
         }
         else
         {
-            print("Number stored on card!");
+            print("Number stored on card: " + String(p_number));
             return true;
         }
     }

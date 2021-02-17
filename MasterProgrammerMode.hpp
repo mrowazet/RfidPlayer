@@ -38,7 +38,6 @@ private:
 
     void handlePlayPauseButton()
     {
-        //unused
         m_userNotifier.communicateError();
     }
     
@@ -49,7 +48,6 @@ private:
     
     void handleMasterProgrammerButton()
     {
-        //unused
         m_userNotifier.communicateError();
     }
 };
