@@ -70,8 +70,8 @@ Prepare MP3 tracks that you want to use and store them in microSD card with prop
 
 Turn on RfidPlayer, when device is ready the LED lit green.
 
-When RfidPlayer started for the very first time push MasterProgrammer button - LED should change color to orange.
-Now, take one of the empty cards and put it next to the RC522 module, sound is generated and LED color is green again - your 'special card' for programming is ready to use. 
+When RfidPlayer started for the very first time push MasterProgrammer button - LED should change color to cyan.
+Now, take one of the empty cards and put it next to the RC522 module, sound is generated (double beep) and LED color is green again - your 'special card' for programming is ready to use. 
 With that card you will be able to encode rest of the cards with or without computer connection.
 
 -----------------
@@ -81,6 +81,7 @@ How to configure without PC connection:
 Scan prepared 'special card', mode is changed for programming - LED color is yellow.
 Push Play/Pause button to select Automatic mode - LED color is blue.
 Start scanning card one by one, track numbers will be stored on cards sequentially starting from track number 1.
+Double beep sound is generated when number is written on card.
 Just restart device when all cards are done.
 
 -----------------
@@ -98,12 +99,14 @@ Push MasterProgrammer button to select Manual mode - LED color is magenta.
 
 In Automatic mode you will be pleased to scan card one by one.
 First card will be encoded with track number 1, next one with track number 2 and so on (same as in configuration without PC connection).
+Double beep sound is generated when number is written on card.
 
 In Manual mode you have to put requested number to serial console and scan card to store typed track number on it.
+Double beep sound is generated when number is written on card.
 
 Just restart device when all cards are done.
 
-Note: Music can be muted when you try to use device when connected to the PC!
+Note: Music may be muted when you try to use device when connected to the PC! Do not worry and try without PC connection.
 
 -----------------
 ENJOY!

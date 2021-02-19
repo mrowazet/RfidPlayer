@@ -43,6 +43,9 @@ const int DEBOUNCE_INTERVAL = 5;
 const int VOLUME_UPDATE_INTERVAL_IN_MS = 250;
 const int ATTEMPT_CARD_WRITE_TIMEOUT_IN_MS = 10000;
 const int USER_INPUT_TIMEOUT_IN_MS = 20000;
+const int COLOR_MINOR_UPDATE_INTERVAL_IN_MS = 200;
+const int COLOR_MAJOR_UPDATE_INTERVAL_IN_MS = 5000;
+const int COLOR_UPDATE_STEP = 10;
 
 const int SHORT_BEEP_DURATION = 400;
 const int LONG_BEEP_DURATION = 900;
@@ -75,11 +78,8 @@ const Color COLOR_NONE(0, 0 ,0);
 const Color COLOR_RED(255, 0, 0);
 const Color COLOR_GREEN(0, 255, 0);
 const Color COLOR_BLUE(0, 0, 255);
-const Color COLOR_RASPBERRY(255, 255, 125);
 const Color COLOR_CYAN(0, 255, 255);
 const Color COLOR_MAGENTA(255, 0, 255);
 const Color COLOR_YELLOW(255, 255, 0);
-const Color COLOR_ORANGE(255,165,0);
-const Color COLOR_WHITE(255, 255, 255);
 
 #endif

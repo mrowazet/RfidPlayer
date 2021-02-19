@@ -33,7 +33,7 @@ private:
     void onEntry()
     {
         print("Enter Master Programmer mode - put card next to the sensor");
-        m_userNotifier.communicateModeChanged(COLOR_ORANGE);
+        m_userNotifier.communicateModeChanged(COLOR_CYAN);
     }
 
     void handlePlayPauseButton()

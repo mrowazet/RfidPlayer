@@ -25,9 +25,9 @@ public:
 
     void confirmBeep()
     {
-        tone(m_buzzer, ERROR_BEEP_FREQ, DOUBLE_BEEP_DURATION);
+        tone(m_buzzer, BEEP_FREQ, DOUBLE_BEEP_DURATION);
         wait(DOUBLE_BEEP_GAP);
-        tone(m_buzzer, ERROR_BEEP_FREQ, DOUBLE_BEEP_DURATION);
+        tone(m_buzzer, BEEP_FREQ, DOUBLE_BEEP_DURATION);
     }
 
     void errorBeep()

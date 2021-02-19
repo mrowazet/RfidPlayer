@@ -41,6 +41,11 @@ public:
         m_rgbLed.randomColor();
     }
 
+    void communicatePlaying()
+    {
+        m_rgbLed.colorUpdate();
+    }
+
     void communicateError()
     {
         print("Error - unexpected event");

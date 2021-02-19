@@ -35,13 +35,23 @@ public:
 
     void randomColor()
     {      
+        m_lastMajorColorUpdate = millis();
         setColor(shuffleIntensiveColor());
     }
 
-    void turnOff()
+    void colorUpdate()
     {
-        m_leds.clear();
-        m_leds.show();
+        unsigned long l_currentTime = millis();
+
+        if(l_currentTime - m_lastMinorColorUpdate > COLOR_MINOR_UPDATE_INTERVAL_IN_MS)
+        {
+            minorColorUpdate(l_currentTime);
+        } 
+
+        if(l_currentTime - m_lastMajorColorUpdate > COLOR_MAJOR_UPDATE_INTERVAL_IN_MS)
+        {           
+            majorColorUpdate(l_currentTime);
+        }  
     }
 
 private:
@@ -67,9 +77,24 @@ private:
             }            
         }
     }
+
+    void minorColorUpdate(unsigned long p_currentTime)
+    {
+        m_lastMinorColorUpdate = p_currentTime;
+
+        //TODO
+    }
+
+    void majorColorUpdate(unsigned long p_currentTime)
+    {      
+        m_lastMajorColorUpdate = p_currentTime;
+        setColor(shuffleIntensiveColor());
+    }    
     
     Adafruit_NeoPixel m_leds;
     Color m_currentColor;
+    unsigned int m_lastMinorColorUpdate;
+    unsigned int m_lastMajorColorUpdate;
 };
 
 #endif
