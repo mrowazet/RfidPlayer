@@ -72,7 +72,7 @@ private:
     DFRobotDFPlayerMini m_dfPlayer;
     const AnalogPin m_volumeRoll;
     UserNotifier& m_userNotifier;
-    unsigned int m_lastVolumeUpdate;
+    unsigned long m_lastVolumeUpdate;
 };
 
 #endif

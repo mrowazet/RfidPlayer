@@ -23,6 +23,7 @@ Key features:
 - Volume level can be adjusted by knob
 - Possible to encode cards with or without computer connection
 - Buzzer and RGB Led used to give feedback to user
+- LED color changing when music playing
 
 -----------------
 What to do first:
