@@ -24,7 +24,11 @@ MasterProgrammerMode* masterProgrammerMode;
                                                                        
 void setup() 
 {
-    Serial.begin(115200);
+    if(SERIAL_COMMUNICATION_ENABLED)
+    {
+        Serial.begin(115200);
+    }
+
     print("Start RFID Player...");
 
     buttonsHandler = new ButtonsHandler(BUTTON_PLAY_PAUSE, BUTTON_SHUFFLE, BUTTON_MASTER_PROGRAMMER_MODE);

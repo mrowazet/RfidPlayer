@@ -4,6 +4,8 @@
 #include "Globals.hpp"
 #include "DFRobotDFPlayerMini.h"
 
+const bool SERIAL_COMMUNICATION_ENABLED = true;
+
 //DFPlayer pins
 const AnalogPin PLAYER_MODULE_RX = A4;
 const AnalogPin PLAYER_MODULE_TX = A5;

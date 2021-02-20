@@ -158,7 +158,7 @@ private:
         if (l_status != MFRC522::STATUS_OK)
         {
             print("Writing failed: ");
-            Serial.println(m_mfrc522.GetStatusCodeName(l_status));
+            print(String(m_mfrc522.GetStatusCodeName(l_status)));
             return false;
         }
         else

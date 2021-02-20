@@ -85,6 +85,8 @@ Start scanning card one by one, track numbers will be stored on cards sequential
 Double beep sound is generated when number is written on card.
 Just restart device when all cards are done.
 
+Note: If device does not want to run/start properly without PC connection try to change SERIAL_COMMUNICATION_ENABLED to false in Config.hpp
+
 -----------------
 How to configure with PC connection:
 -----------------
@@ -114,6 +116,7 @@ ENJOY!
 -----------------
 
 Connect RfidPlayer by AUX to external speakers/amplifier and scan one of the prepared card to start playing your favorite music!
+
 
 
 
