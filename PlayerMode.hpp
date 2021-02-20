@@ -26,9 +26,9 @@ public:
 
         if(isPlaying())
         {
-            m_userNotifier.communicatePlaying(); 
+            m_userNotifier.communicatePlaying();
         }
-       
+
         int l_detectedNumber = m_rfidModule.read();
         
         if(l_detectedNumber == NO_NEW_CARD_DETECTED)
@@ -66,7 +66,7 @@ private:
             resumePlaying();
         }
     }
-    
+
     void handleShuffleButton()
     {
         m_isPlaying = true;
@@ -74,7 +74,7 @@ private:
         m_playerModule.randomPlay();
         m_userNotifier.communicateShuffle();
     }
-    
+
     void handleMasterProgrammerButton()
     {
         pausePlaying();
@@ -91,7 +91,7 @@ private:
     void pausePlaying()
     {
         m_isPlaying = false;
-        m_playerModule.pause();  
+        m_playerModule.pause();
     }
 
     void resumePlaying()

@@ -45,22 +45,22 @@ public:
 
     void play(int p_fileNumber)
     {
-        m_dfPlayer.play(p_fileNumber);  
+        m_dfPlayer.play(p_fileNumber);
     }
-    
+
     void randomPlay()
     {
-        m_dfPlayer.randomAll();  
+        m_dfPlayer.randomAll();
     }
-    
+
     void pause()
     {
-        m_dfPlayer.pause();  
+        m_dfPlayer.pause();
     }
-    
+
     void start()
     {
-        m_dfPlayer.start();  
+        m_dfPlayer.start();
     }
 
 private:

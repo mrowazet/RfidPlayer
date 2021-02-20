@@ -22,7 +22,7 @@ public:
           m_playerModule(p_playerModule),
           m_userNotifier(p_userNotifier),
           m_currentMode(p_currentMode)
-    {     
+    {
     }
 
     void startProcessing()
@@ -32,7 +32,7 @@ public:
         while(m_currentMode == m_ownMode)
         {
             handleButtons();
-            process(); 
+            process();
         }
     }
 
@@ -58,7 +58,7 @@ public:
             handleMasterProgrammerButton();
         }
     }
-    
+
     virtual void process() = 0;
 
 protected:

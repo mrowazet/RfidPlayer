@@ -85,7 +85,7 @@ private:
     void dumpCardDetails()
     {
         m_mfrc522.PICC_DumpDetailsToSerial(&(m_mfrc522.uid));
-        m_mfrc522.PICC_DumpToSerial(&(m_mfrc522.uid));    
+        m_mfrc522.PICC_DumpToSerial(&(m_mfrc522.uid));
     }
 
     bool authenticate()
@@ -118,7 +118,7 @@ private:
             print(m_mfrc522.GetStatusCodeName(l_status));
             return NO_NEW_CARD_DETECTED;
         }
-       
+
         int l_trackNumber = (int)l_buffer[0];
 
         if(l_trackNumber == MASTER_CARD_CODE)
@@ -152,7 +152,7 @@ private:
         byte l_buffer[BUFFER_SIZE_FOR_WRITE];
         l_buffer[0] = p_number;
         
-        MFRC522::StatusCode l_status = m_mfrc522.MIFARE_Write(DATA_BLOCK_NUMBER, 
+        MFRC522::StatusCode l_status = m_mfrc522.MIFARE_Write(DATA_BLOCK_NUMBER,
                                                               l_buffer,
                                                               BUFFER_SIZE_FOR_WRITE);
         if (l_status != MFRC522::STATUS_OK)
@@ -171,8 +171,8 @@ private:
     void stopCommunication()
     {
         m_mfrc522.PICC_HaltA();
-        m_mfrc522.PCD_StopCrypto1();      
-    }    
+        m_mfrc522.PCD_StopCrypto1();
+    }
     
     MFRC522 m_mfrc522;
     UserNotifier& m_userNotifier;

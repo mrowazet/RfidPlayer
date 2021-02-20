@@ -17,9 +17,9 @@ public:
                    p_playerModule,
                    p_userNotifier,
                    p_currentMode)
-    {     
+    {
     }
-    
+
     void process()
     {
         if(m_rfidModule.write(MASTER_CARD_CODE))
@@ -40,12 +40,12 @@ private:
     {
         m_userNotifier.communicateError();
     }
-    
+
     void handleShuffleButton()
     {
         changeMode(Mode::Player);
     }
-    
+
     void handleMasterProgrammerButton()
     {
         m_userNotifier.communicateError();

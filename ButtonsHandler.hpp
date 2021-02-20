@@ -33,7 +33,7 @@ public:
 
     bool masterProgrammerPressed()
     {
-        return m_buttonMasterProgrammer.pressed();  
+        return m_buttonMasterProgrammer.pressed();
     }
 private:
     Bounce2::Button m_buttonPlayPause;
@@ -41,10 +41,10 @@ private:
     Bounce2::Button m_buttonMasterProgrammer;
 
     void configureButton(Bounce2::Button& p_button, AnalogPin p_buttonPin)
-    {        
+    {
         p_button.attach(p_buttonPin, INPUT_PULLUP);
         p_button.interval(DEBOUNCE_INTERVAL);
-        p_button.setPressedState(LOW);  
+        p_button.setPressedState(LOW);
     }
 };
 

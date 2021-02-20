@@ -19,7 +19,7 @@ struct Color
           blue(p_blue)
     {
     }
-    
+
     byte red;
     byte green;
     byte blue;

@@ -18,9 +18,9 @@ public:
                    p_userNotifier,
                    p_currentMode),
           m_selectedMode(ProgrammingMode::NOT_SELECTED)
-    {     
+    {
     }
-    
+
     void process()
     {
         if(m_selectedMode == ProgrammingMode::AUTOMATIC)
@@ -33,7 +33,7 @@ public:
         {
             int l_requestedNumber = readFromSerial();
             storeNumberOnCard(l_requestedNumber);
-        } 
+        }
     }
 
 private:
@@ -43,29 +43,29 @@ private:
         AUTOMATIC,
         MANUAL
     };
-    
+
     void onEntry()
     {
         print("Enter Programmer mode");
         print("Push Play/Pause button for Automatic mode");
         print("Master Programmer button for Manual mode");
         
-        m_userNotifier.communicateModeChanged(COLOR_YELLOW);  
+        m_userNotifier.communicateModeChanged(COLOR_YELLOW);
     }
-    
+
     void handlePlayPauseButton()
     {
         print("Use automatic programming mode");
         m_selectedMode = ProgrammingMode::AUTOMATIC;
         m_userNotifier.communicateModeChanged(COLOR_BLUE);
     }
-    
+
     void handleShuffleButton()
     {
         m_lastUsedNumber = 0;
         changeMode(Mode::Player);
     }
-    
+
     void handleMasterProgrammerButton()
     {
         print("Use manual programming mode");
@@ -81,7 +81,7 @@ private:
         {
             print("Invalid number!");
             m_userNotifier.communicateError();
-            return;           
+            return;
         }
 
         print("Put card next to the sensor");
@@ -95,13 +95,13 @@ private:
                 m_lastUsedNumber = p_trackNumber;
                 m_userNotifier.communicateConfirm();
                 return;
-            }          
+            }
         }
         
         print("Card not detected! Try again");
         m_userNotifier.communicateError();
     }
-   
+
     bool isTrackNumberValid(int p_trackNumber)
     {
         return (p_trackNumber > 0 and p_trackNumber < MAX_NUM_OF_TRACKS);

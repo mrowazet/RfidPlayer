@@ -15,7 +15,7 @@ public:
 
     void shortBeep()
     {
-       tone(m_buzzer, BEEP_FREQ, SHORT_BEEP_DURATION);    
+        tone(m_buzzer, BEEP_FREQ, SHORT_BEEP_DURATION);
     }
 
     void longBeep()
@@ -32,7 +32,7 @@ public:
 
     void errorBeep()
     {
-        tone(m_buzzer, ERROR_BEEP_FREQ, ERROR_BEEP_DURATION); 
+        tone(m_buzzer, ERROR_BEEP_FREQ, ERROR_BEEP_DURATION);
     }
 
 private:

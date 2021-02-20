@@ -63,7 +63,7 @@ private:
                 or (l_color.red < MAX_VALUE_FOR_LESS_INTENSIVE_COLORS and l_color.green > MIN_VALUE_FOR_MOST_INTENSIVE_COLOR and l_color.blue < MAX_VALUE_FOR_LESS_INTENSIVE_COLORS)
                 or (l_color.red < MAX_VALUE_FOR_LESS_INTENSIVE_COLORS and l_color.green < MAX_VALUE_FOR_LESS_INTENSIVE_COLORS and l_color.blue > MIN_VALUE_FOR_MOST_INTENSIVE_COLOR))
             {
-                return l_color;             
+                return l_color;
             }
             else
             {
@@ -73,7 +73,7 @@ private:
             }            
         }
     }
-    
+
     Adafruit_NeoPixel m_leds;
     Color m_currentColor;
     unsigned long m_lastColorUpdate;
