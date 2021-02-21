@@ -49,6 +49,8 @@ Bounce2
 Some configuration details can be set based on your preferences, see file Config.hpp
 Here you can change Arduino PINs setting or small things like buzzer frequency.
 
+Note: Some PINs numbers should not be changed so do not do that if you are not completely sure what you are doing
+
 -----------------
 How to start:
 -----------------
@@ -72,7 +74,7 @@ Prepare MP3 tracks that you want to use and store them in microSD card with prop
 Turn on RfidPlayer, when device is ready the LED lits green.
 
 When RfidPlayer started for the very first time push MasterProgrammer button - LED should change color to cyan.
-Now, take one of the empty cards and put it next to the RC-522 module, sound is generated (double beep) and LED color is green again - your 'special card' for programming is ready to use. 
+Now, take one of the empty cards and put it next to the RC-522 module, sound is generated (double beep) and LED color is green again - your 'special card' for programming is ready to use.
 With that card you will be able to encode rest of the cards with or without computer connection.
 
 -----------------
@@ -110,15 +112,10 @@ Double beep sound is generated when number is written on card.
 Just restart device when all cards are done.
 
 Note: Music may be muted when you try to use device when connected to the PC! Do not worry and try without PC connection.
+Note: Manual programming will not be possible if SERIAL_COMMUNICATION_ENABLED is set to false.
 
 -----------------
 ENJOY!
 -----------------
 
 Connect RfidPlayer by AUX to external speakers/amplifier and scan one of the prepared card to start playing your favorite music!
-
-
-
-
-
-
