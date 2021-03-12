@@ -67,9 +67,10 @@ Load code from repository to your Arduino board - the simplest way to do that is
 See connection circuit stored in this repository - circuit.jpg to find out how to connect everything together and do it.
 
 Prepare MP3 tracks that you want to use and store them in microSD card with proper names - name must start with numbers, example:
-0001 track_name.mp3
+0001_track_name.mp3
+0002_track_name.mp3
 ...
-0012 track_name.mp3
+0012_track_name.mp3
 
 Turn on RfidPlayer, when device is ready the LED lits green.
 
