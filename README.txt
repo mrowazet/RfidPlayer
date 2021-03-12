@@ -67,9 +67,9 @@ Load code from repository to your Arduino board - the simplest way to do that is
 See connection circuit stored in this repository - circuit.jpg to find out how to connect everything together and do it.
 
 Prepare MP3 tracks that you want to use and store them in microSD card with proper names - name must start with numbers, example:
-0001_track.mp3
+0001 track_name.mp3
 ...
-0012_track.mp3
+0012 track_name.mp3
 
 Turn on RfidPlayer, when device is ready the LED lits green.
 
@@ -113,6 +113,13 @@ Just restart device when all cards are done.
 
 Note: Music may be muted when you try to use device when connected to the PC! Do not worry and try without PC connection.
 Note: Manual programming will not be possible if SERIAL_COMMUNICATION_ENABLED is set to false.
+
+-----------------
+ADDITIONAL INFO
+-----------------
+In repository you can find archive card_templates.rar
+Archive contains *.pfi files prepared in PhotoFiltre 7 - those files are templates for card covers.
+Edit file with your favorite layout and print it on 10x15cm photo paper - covers will fit well for standard MIFARE card.
 
 -----------------
 ENJOY!
