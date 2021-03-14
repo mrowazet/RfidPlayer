@@ -2,6 +2,9 @@
 RfidPlayer
 -----------------
 
+![alt text](https://github.com/mrowazet/RfidPlayer/blob/main/example.jpg?raw=true)
+
+
 This project was inspired by: https://ananords.com/juuke-a-rfid-music-player-for-elderly-and-kids
 Project realized on Arduino UNO but can be built on another Arduino version with enough number of pins.
 Circuit made in Draw.io - https://www.diagrams.net
