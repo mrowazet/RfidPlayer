@@ -39,7 +39,11 @@ public:
                                     MIN_VOLUME_LEVEL, MAX_VALUE_ON_ROLL,
                                     MIN_VOLUME_LEVEL, MAX_VOLUME_ON_DFPLAYER);
 
-            m_dfPlayer.volume(l_volumeLevel);
+            if(l_volumeLevel != m_lastVolumeLevel)
+            {
+                m_lastVolumeLevel = l_volumeLevel;
+                m_dfPlayer.volume(l_volumeLevel);
+            }
         }
     }
 
@@ -73,6 +77,7 @@ private:
     const AnalogPin m_volumeRoll;
     UserNotifier& m_userNotifier;
     unsigned long m_lastVolumeUpdate;
+    unsigned int m_lastVolumeLevel;
 };
 
 #endif
