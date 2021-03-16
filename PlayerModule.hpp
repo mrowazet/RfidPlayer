@@ -49,7 +49,7 @@ public:
 
     void play(int p_fileNumber)
     {
-        m_dfPlayer.play(p_fileNumber);
+        m_dfPlayer.playMp3Folder(p_fileNumber);
     }
 
     void randomPlay()
